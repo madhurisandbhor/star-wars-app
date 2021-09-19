@@ -30,7 +30,7 @@ const SearchBar: FC<Props> = ({ handleSearch }: Props): JSX.Element => {
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
-              <SearchIcon fontSize="large" />
+              <SearchIcon color="primary" fontSize="large" />
             </InputAdornment>
           ),
           classes: { root: classes.inputRoot },

@@ -53,6 +53,7 @@ const Dashboard: FC = (): JSX.Element => {
   const [favourites, setFavourites] = useState<string[]>(
     context.favChars || []
   );
+  const [exportCharacters, setExportCharacters] = useState<Character[]>([]);
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState<string>("");
   const [list, setList] = useState<Character[]>([]);
@@ -130,7 +131,7 @@ const Dashboard: FC = (): JSX.Element => {
     const favourListDownload = list.filter((character) =>
       favourites.includes(character.id)
     );
-    console.log(favourListDownload);
+    setExportCharacters(favourListDownload);
   };
 
   useEffect(() => {
@@ -195,7 +196,11 @@ const Dashboard: FC = (): JSX.Element => {
 
   return (
     <div className={classes.wrapper}>
-      <Toolbar onSearch={onSearch} handleDownload={handleDownload} />
+      <Toolbar
+        data={exportCharacters}
+        onSearch={onSearch}
+        handleDownload={handleDownload}
+      />
       <List
         list={list}
         toggleFavorite={toggleFavorite}
