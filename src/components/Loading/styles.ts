@@ -1,8 +1,10 @@
 import { makeStyles } from '@mui/styles'
 
 const useStyles = makeStyles(() => ({
-    wrapper: {
-        color: "#4511bf",
+    loading: {
+        '&&[class*="MuiCircularProgress-colorPrimary"]': {
+            color:  '#673ab7',
+        }
     }
 }))
 

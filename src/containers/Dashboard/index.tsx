@@ -7,11 +7,9 @@ import React, {
   useContext,
 } from "react";
 import List from "components/List";
-import Search from "components/Search";
 import Loading from "components/Loading";
-import Button from "@mui/material/Button";
-import DownloadIcon from "@mui/icons-material/Download";
 import { Character, Film } from "types/common";
+import Toolbar from "components/Toolbar";
 import { MyContext } from "App";
 import { swapiUrl } from "api";
 import useStyles from "./styles";
@@ -62,22 +60,8 @@ const Dashboard: FC = (): JSX.Element => {
   const [ele, setEle] = useState<HTMLDivElement | null>(null);
 
   const onSearch = useCallback((searchValue: string) => {
-    setLoading(true);
     setSearch(searchValue);
   }, []);
-
-  useEffect(() => {
-    const temp = [...originalList];
-    const filteredList = temp.filter(
-      (item) =>
-        item.name.toLowerCase().includes(searchText) ||
-        item.filmConnection.films.some((film: Film) =>
-          film.title.toLowerCase().includes(searchText)
-        )
-    );
-    setList(filteredList);
-    setLoading(false);
-  }, [searchText, originalList]);
 
   const getData = useCallback(() => {
     const fetchRequest = async () => {
@@ -108,7 +92,6 @@ const Dashboard: FC = (): JSX.Element => {
       } catch (err: any) {
         const errorMsg = err.message || err;
         setError(errorMsg);
-        // console.log(errorMsg);
       } finally {
         setLoading(false);
       }
@@ -149,6 +132,18 @@ const Dashboard: FC = (): JSX.Element => {
     );
     console.log(favourListDownload);
   };
+
+  useEffect(() => {
+    const temp = [...originalList];
+    const filteredList = temp.filter(
+      (item) =>
+        item.name.toLowerCase().includes(searchText) ||
+        item.filmConnection.films.some((film: Film) =>
+          film.title.toLowerCase().includes(searchText)
+        )
+    );
+    setList(filteredList);
+  }, [searchText, originalList]);
 
   useEffect(() => {
     getData();
@@ -200,31 +195,22 @@ const Dashboard: FC = (): JSX.Element => {
 
   return (
     <div className={classes.wrapper}>
-      <div className={classes.toolbar}>
-        <Search handleSearch={onSearch} handleDownload={handleDownload} />
-        <Button
-          size="large"
-          color="primary"
-          variant="outlined"
-          startIcon={<DownloadIcon />}
-          onClick={handleDownload}
-          classes={{ root: classes.downloadBtn }}
-        >
-          Download favourites
-        </Button>
-      </div>
-      {!isLoading && (error || list.length === 0) && (
-        <div className={classes.noResult}>No result!!!</div>
-      )}
+      <Toolbar onSearch={onSearch} handleDownload={handleDownload} />
       <List
         list={list}
         toggleFavorite={toggleFavorite}
         favouriteList={favourites}
       />
-      {isLoading && (
+      {isLoading ? (
         <div>
           <Loading />
         </div>
+      ) : (
+        <>
+          {(error || list.length === 0) && (
+            <div className={classes.noResult}>No result!!!</div>
+          )}
+        </>
       )}
       {!isLoading && more && <div ref={setEle}></div>}
     </div>

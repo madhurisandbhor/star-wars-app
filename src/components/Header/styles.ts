@@ -26,7 +26,7 @@ const useStyles = makeStyles(() => ({
                     fontWeight: 'bold',
                 },
                 '& > p:last-child': {
-                    color: '#4511bf',
+                    color:  '#673ab7',
                     marginTop: '-0.5rem',
                 },
             },

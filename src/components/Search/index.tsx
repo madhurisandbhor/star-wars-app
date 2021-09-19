@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, memo } from "react";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
@@ -6,13 +6,9 @@ import useStyles from "./styles";
 
 interface Props {
   handleSearch: (value: string) => void;
-  handleDownload: () => void;
 }
 
-const SearchBar: FC<Props> = ({
-  handleSearch,
-  handleDownload,
-}: Props): JSX.Element => {
+const SearchBar: FC<Props> = ({ handleSearch }: Props): JSX.Element => {
   const classes = useStyles();
   const [typingTimeout, setTypingTimeout] = useState<any>(0);
 
@@ -46,8 +42,7 @@ const SearchBar: FC<Props> = ({
         fullWidth
       />
     </div>
-    // <button onClick={handleDownload}>Download favourites</button>
   );
 };
 
-export default React.memo(SearchBar);
+export default memo(SearchBar);

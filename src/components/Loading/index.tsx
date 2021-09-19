@@ -8,8 +8,8 @@ interface Props {}
 const Loading: FC<Props> = () => {
   const classes = useStyles();
   return (
-    <Box sx={{ display: "flex", alignItems: "center" }}>
-      <CircularProgress color="primary" />
+    <Box sx={{ display: "flex", justifyContent: "center" }}>
+      <CircularProgress color="primary" classes={{ root: classes.loading }} />
     </Box>
   );
 };

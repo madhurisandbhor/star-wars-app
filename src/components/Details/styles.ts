@@ -25,7 +25,7 @@ const useStyles = makeStyles(() => ({
         textAlign: 'center',
         margin: 'auto',
         padding: '1rem',
-        color: '#4511bf',
+        color:  '#673ab7',
         fontSize: '2.4rem',
     },
     details: {
