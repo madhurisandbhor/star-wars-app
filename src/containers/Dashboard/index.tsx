@@ -9,6 +9,8 @@ import React, {
 import List from "components/List";
 import Search from "components/Search";
 import Loading from "components/Loading";
+import Button from "@mui/material/Button";
+import DownloadIcon from "@mui/icons-material/Download";
 import { Character, Film } from "types/common";
 import { MyContext } from "App";
 import { swapiUrl } from "api";
@@ -198,7 +200,19 @@ const Dashboard: FC = (): JSX.Element => {
 
   return (
     <div className={classes.wrapper}>
-      <Search handleSearch={onSearch} handleDownload={handleDownload} />
+      <div className={classes.toolbar}>
+        <Search handleSearch={onSearch} handleDownload={handleDownload} />
+        <Button
+          size="large"
+          color="primary"
+          variant="outlined"
+          startIcon={<DownloadIcon />}
+          onClick={handleDownload}
+          classes={{ root: classes.downloadBtn }}
+        >
+          Download favourites
+        </Button>
+      </div>
       {!isLoading && (error || list.length === 0) && (
         <div className={classes.noResult}>No result!!!</div>
       )}

@@ -4,7 +4,7 @@ const useStyles = makeStyles(() => ({
     header: {
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
         height: '6.5rem',
         margin: 'auto',
@@ -13,11 +13,10 @@ const useStyles = makeStyles(() => ({
         background: '#ffffff',
         '& > ul': {
             listStyle: 'none',
-            marginLeft: '1.6rem',
             '& > li > a': {
                 textDecoration: 'none',
                 display: 'flex',
-                alignItems: 'flex-end',
+                alignItems: 'center',
                 flexDirection: 'column',
                 '& > p:first-child': {
                     textTransform: 'uppercase',
@@ -37,7 +36,6 @@ const useStyles = makeStyles(() => ({
         },
         '@media(max-width: 768px)': {
             flexDirection: 'column',
-            height: '8rem',
             padding: '0.5rem',
             alignItems: 'center',
             justifyContent: 'space-around',
