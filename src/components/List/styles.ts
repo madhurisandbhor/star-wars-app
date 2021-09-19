@@ -1,6 +1,7 @@
 import { makeStyles } from '@mui/styles';
+import { Theme } from '@mui/material/styles';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme: Theme) => ({
     list: {
         display: "flex",
         flexFlow: "row wrap",
@@ -35,7 +36,7 @@ const useStyles = makeStyles(() => ({
         textAlign: 'center',
         margin: 'auto',
         padding: '0.3rem',
-        color:  '#673ab7',
+        color:  theme.palette.primary.main,
         fontSize: '1.8rem',
     },
     details: {

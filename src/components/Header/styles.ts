@@ -1,6 +1,7 @@
 import { makeStyles } from '@mui/styles';
+import { Theme } from '@mui/material/styles';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme: Theme) => ({
     header: {
         display: 'flex',
         flexDirection: 'row',
@@ -26,7 +27,7 @@ const useStyles = makeStyles(() => ({
                     fontWeight: 'bold',
                 },
                 '& > p:last-child': {
-                    color:  '#673ab7',
+                    color: theme.palette.primary.main,
                     marginTop: '-0.5rem',
                 },
             },
