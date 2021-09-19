@@ -15,6 +15,9 @@ export type Character = {
     filmConnection: {
         films: Film[]
     }
+    species: {
+        name: string
+    }[]
 };
 
 
