@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import App from "App";
+import App from "app";
 import "./mocks/intersectionObserverMock";
 
 test("renders app component", () => {
