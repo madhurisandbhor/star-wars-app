@@ -2,9 +2,7 @@ import React, { FC, memo } from "react";
 import { NavLink } from "react-router-dom";
 import useStyles from "./styles";
 
-interface Props {}
-
-const Header: FC<Props> = () => {
+const Header: FC = (): JSX.Element => {
   const classes = useStyles();
 
   return (

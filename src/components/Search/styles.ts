@@ -18,9 +18,6 @@ const useStyles = makeStyles(() => ({
             border: 0,
             outline: 0,
         },
-        '&&[class*="MuiOutlinedInput-adornedStart"]': {
-            paddingLeft: 0,
-        },
     },
 }))
 

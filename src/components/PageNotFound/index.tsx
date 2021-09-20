@@ -1,8 +1,6 @@
 import React, { FC, memo } from "react";
 
-interface Props {}
-
-const PageNotFound: FC<Props> = () => {
+const PageNotFound: FC = (): JSX.Element => {
   return <div>Oops!! Page not found</div>;
 };
 

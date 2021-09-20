@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         textAlign: 'center',
         margin: 'auto',
         padding: '1rem',
-        color: theme.palette.primary.main,
+        color:  theme.palette.primary.main,
         fontSize: '2.4rem',
     },
     details: {

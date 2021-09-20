@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         textAlign: 'center',
         margin: 'auto',
         padding: '0.3rem',
-        color:  theme.palette.primary.main,
+        color:   theme.palette.primary.main,
         fontSize: '1.8rem',
     },
     details: {
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme: Theme) => ({
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
             gap: '1rem 0.8rem',
-            opacity: '0.8',
+            opacity: '0.9',
             padding: '0.5rem',
             margin: 'auto',
             fontSize: '1.4rem',

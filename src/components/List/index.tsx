@@ -43,7 +43,7 @@ const Details: FC<Props> = ({
                 </IconButton>
               ) : (
                 <IconButton onClick={(e) => toggleFavorite(e, item.id)}>
-                  <HeartSvg className={classes.svg} />
+                  <HeartSvg data-testid="heartSvg" className={classes.svg} />
                 </IconButton>
               )}
             </div>

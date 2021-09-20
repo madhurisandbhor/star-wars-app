@@ -4,7 +4,7 @@ import { Theme } from '@mui/material/styles';
 const useStyles = makeStyles((theme: Theme) => ({
     loading: {
         '&&[class*="MuiCircularProgress-colorPrimary"]': {
-            color:  theme.palette.primary.main,
+            color: theme.palette.primary.main,
         }
     }
 }))

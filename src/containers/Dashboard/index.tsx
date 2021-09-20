@@ -10,7 +10,7 @@ import List from "components/List";
 import Loading from "components/Loading";
 import { Character, Film } from "types/common";
 import Toolbar from "components/Toolbar";
-import { MyContext } from "App";
+import { MyContext } from "app";
 import { swapiUrl } from "api";
 import useStyles from "./styles";
 
@@ -127,16 +127,15 @@ const Dashboard: FC = (): JSX.Element => {
     [favourites, context]
   );
 
-  const handleDownload = () => {
+  const handleDownload = useCallback(() => {
     const favourListDownload = list.filter((character) =>
       favourites.includes(character.id)
     );
     setExportCharacters(favourListDownload);
-  };
+  }, [favourites, list]);
 
   useEffect(() => {
-    const temp = [...originalList];
-    const filteredList = temp.filter(
+    const filteredList = originalList.filter(
       (item) =>
         item.name.toLowerCase().includes(searchText) ||
         item.filmConnection.films.some((film: Film) =>
@@ -195,7 +194,7 @@ const Dashboard: FC = (): JSX.Element => {
   }, [ele]);
 
   return (
-    <div className={classes.wrapper}>
+    <div className={classes.wrapper} data-testid="main-container">
       <Toolbar
         data={exportCharacters}
         onSearch={onSearch}
@@ -207,9 +206,7 @@ const Dashboard: FC = (): JSX.Element => {
         favouriteList={favourites}
       />
       {isLoading ? (
-        <div>
-          <Loading />
-        </div>
+        <Loading />
       ) : (
         <>
           {(error || list.length === 0) && (
