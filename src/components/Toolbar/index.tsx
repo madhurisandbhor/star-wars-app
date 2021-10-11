@@ -32,7 +32,7 @@ const Toolbar: FC<Props> = ({
         disablePortal
         id="film-suggestions"
         options={filmSuggestions}
-        sx={{ width: 300 }}
+        sx={{ width: 250 }}
         renderInput={(params) => <TextField {...params} label="film" />}
         onChange={(e, value) => onSelect(e, value)}
       />
