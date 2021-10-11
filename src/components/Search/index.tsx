@@ -35,7 +35,7 @@ const SearchBar: FC<Props> = ({ handleSearch }: Props): JSX.Element => {
           ),
           classes: { root: classes.inputRoot },
         }}
-        placeholder="Search character by name or film"
+        placeholder="Search character by name"
         variant="outlined"
         size="small"
         onChange={onSearch}

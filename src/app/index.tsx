@@ -24,9 +24,9 @@ function App() {
     <MyContext.Provider value={{ favChars, setFavChars }}>
       <Theme>
         <Router>
-          <div className="app" data-testid="app-id">
+          <div data-testid="app-id">
             <Header />
-            <div className="app-body">
+            <div>
               <Switch>
                 <Route exact path="/" component={DashboardWrapper} />
                 <Route

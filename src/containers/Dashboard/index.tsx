@@ -59,6 +59,7 @@ const Dashboard: FC = (): JSX.Element => {
   const [list, setList] = useState<Character[]>([]);
   const [more, setMore] = useState(false);
   const [ele, setEle] = useState<HTMLDivElement | null>(null);
+  const [filmSuggestions, setFilmSuggestions] = useState<string[]>([]);
 
   const onSearch = useCallback((searchValue: string) => {
     setSearch(searchValue);
@@ -70,8 +71,8 @@ const Dashboard: FC = (): JSX.Element => {
       try {
         const res = await fetch(swapiUrl, {
           method: "post",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ query }),
+          headers: { "Content-Type": "application/graphql" },
+          body: query,
         });
         let {
           data: { allPeople },
@@ -142,8 +143,31 @@ const Dashboard: FC = (): JSX.Element => {
           film.title.toLowerCase().includes(searchText)
         )
     );
+
     setList(filteredList);
   }, [searchText, originalList]);
+
+  const onSelect = useCallback(
+    (e: React.SyntheticEvent, value: string | null) => {
+      if (value) setSearch(value.toLowerCase());
+    },
+    []
+  );
+
+  const getFilms = useCallback(() => {
+    let films: string[] = [];
+
+    originalList.forEach((item) => {
+      item.filmConnection.films.forEach((film: Film) => {
+        if (!films.includes(film.title)) films.push(film.title);
+      });
+    });
+    setFilmSuggestions(films);
+  }, [originalList]);
+
+  useEffect(() => {
+    getFilms();
+  }, [getFilms]);
 
   useEffect(() => {
     getData();
@@ -199,6 +223,8 @@ const Dashboard: FC = (): JSX.Element => {
         data={exportCharacters}
         onSearch={onSearch}
         handleDownload={handleDownload}
+        filmSuggestions={filmSuggestions}
+        onSelect={onSelect}
       />
       <List
         list={list}
