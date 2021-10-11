@@ -49,6 +49,7 @@ const Dashboard: FC = (): JSX.Element => {
   const [query, setQuery] = useState<string>(initialQuery);
   const [endCursor, setEndCursor] = useState<string | null>(null);
   const [searchText, setSearch] = useState("");
+  const [searchByFilm, setSearchByFilm] = useState("");
   const [originalList, setOriginalList] = useState<Character[]>([]);
   const [favourites, setFavourites] = useState<string[]>(
     context.favChars || []
@@ -136,20 +137,27 @@ const Dashboard: FC = (): JSX.Element => {
   }, [favourites, list]);
 
   useEffect(() => {
-    const filteredList = originalList.filter(
-      (item) =>
-        item.name.toLowerCase().includes(searchText) ||
-        item.filmConnection.films.some((film: Film) =>
-          film.title.toLowerCase().includes(searchText)
-        )
-    );
+    const filteredList = originalList.filter((item) => {
+      if (searchText && searchByFilm)
+        return (
+          item.name.toLowerCase().includes(searchText) &&
+          item.filmConnection.films.some((film: Film) =>
+            film.title.toLowerCase().includes(searchByFilm)
+          )
+        );
+      if (searchText) return item.name.toLowerCase().includes(searchText);
+      return item.filmConnection.films.some((film: Film) =>
+        film.title.toLowerCase().includes(searchByFilm)
+      );
+    });
 
     setList(filteredList);
-  }, [searchText, originalList]);
+  }, [searchText, searchByFilm, originalList]);
 
   const onSelect = useCallback(
     (e: React.SyntheticEvent, value: string | null) => {
-      if (value) setSearch(value.toLowerCase());
+      if (value) setSearchByFilm(value.toLowerCase());
+      else setSearchByFilm("");
     },
     []
   );

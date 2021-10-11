@@ -33,7 +33,10 @@ const Toolbar: FC<Props> = ({
         id="film-suggestions"
         options={filmSuggestions}
         sx={{ width: 250 }}
-        renderInput={(params) => <TextField {...params} label="film" />}
+        classes={{
+          inputRoot: classes.outlinedInput,
+        }}
+        renderInput={(params) => <TextField {...params} placeholder="Film" />}
         onChange={(e, value) => onSelect(e, value)}
       />
       <CSVLink

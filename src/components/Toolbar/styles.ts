@@ -16,9 +16,14 @@ const useStyles = makeStyles(() => ({
     },
     downloadBtn: {
         '&&[class*="MuiButton-outlined"]': {
-            fontSize: '1.2rem',
+            // fontSize: '1.2rem',
         },
     },
+    outlinedInput: {
+        '&&[class*="MuiOutlinedInput-root"] .MuiAutocomplete-input': {
+            padding: '0',
+        },
+    }
 }))
 
 export default useStyles;

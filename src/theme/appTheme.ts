@@ -9,6 +9,10 @@ const Theme = createTheme({
       main: '#f50057',
     }
   },
+  typography: {
+    fontFamily: '"Crimson Pro", serif',
+    htmlFontSize: 10,
+  },
 });
 
 export default Theme;
