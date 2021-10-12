@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme: Theme) => ({
             transition: 'all .5s ease',
             zIndex: 99,
             '&:hover': {
-              cursor: 'pointer',
-              background: `${theme.palette.primary.main}50`,
+                cursor: 'pointer',
+                background: `${theme.palette.primary.main}50`,
             },
         },
     },
@@ -47,11 +47,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     visible: {
         opacity: 1,
         transform: 'translateY(-3rem)',
-      },
-      invisible: {
+    },
+    invisible: {
         opacity: 0,
         transform: 'translateY(3rem)',
-      },
+    },
 }))
 
 export default useStyles;
