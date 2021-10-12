@@ -72,6 +72,7 @@ const Dashboard: FC = (): JSX.Element => {
 
   const onSearch = useCallback((searchValue: string) => {
     setSearch(searchValue);
+    setOpen(false);
   }, []);
 
   const getData = useCallback(() => {
@@ -103,6 +104,7 @@ const Dashboard: FC = (): JSX.Element => {
       } catch (err: any) {
         const errorMsg = err.message || err;
         setError(errorMsg);
+        setOpen(true);
       } finally {
         setLoading(false);
       }
@@ -139,7 +141,7 @@ const Dashboard: FC = (): JSX.Element => {
 
   const handleDownload = useCallback(() => {
     if (favourites.length === 0) {
-      setError("Please select favourites to download");
+      setError("Please select favourite characters to download");
       setOpen(true);
     } else {
       const favourListDownload = list.filter((character) =>
@@ -168,6 +170,10 @@ const Dashboard: FC = (): JSX.Element => {
       );
     });
 
+    if (searchText && filteredList.length === 0) {
+      setOpen(true);
+      setError("No result");
+    }
     setList(filteredList);
   }, [searchText, searchByFilm, originalList]);
 
@@ -308,15 +314,7 @@ const Dashboard: FC = (): JSX.Element => {
         <ArrowTop />
       </button>
 
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <>
-          {(error || list.length === 0) && (
-            <div className={classes.noResult}>No result!!!</div>
-          )}
-        </>
-      )}
+      {isLoading && <Loading />}
       {!isLoading && more && <div ref={setEle}></div>}
     </div>
   );
