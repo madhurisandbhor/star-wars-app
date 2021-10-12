@@ -23,7 +23,7 @@ function App() {
   return (
     <MyContext.Provider value={{ favChars, setFavChars }}>
       <Theme>
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <div data-testid="app-id">
             <Header />
             <div>
