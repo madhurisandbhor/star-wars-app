@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/star-wars-app/static/css/main.341ed233.chunk.css",
-    "main.js": "/star-wars-app/static/js/main.53f66221.chunk.js",
-    "main.js.map": "/star-wars-app/static/js/main.53f66221.chunk.js.map",
+    "main.js": "/star-wars-app/static/js/main.3a8e6470.chunk.js",
+    "main.js.map": "/star-wars-app/static/js/main.3a8e6470.chunk.js.map",
     "runtime-main.js": "/star-wars-app/static/js/runtime-main.945645b6.js",
     "runtime-main.js.map": "/star-wars-app/static/js/runtime-main.945645b6.js.map",
     "static/js/2.6b53c23d.chunk.js": "/star-wars-app/static/js/2.6b53c23d.chunk.js",
@@ -10,6 +10,7 @@
     "index.html": "/star-wars-app/index.html",
     "static/css/main.341ed233.chunk.css.map": "/star-wars-app/static/css/main.341ed233.chunk.css.map",
     "static/js/2.6b53c23d.chunk.js.LICENSE.txt": "/star-wars-app/static/js/2.6b53c23d.chunk.js.LICENSE.txt",
+    "static/media/arrow-top.3d2ab518.svg": "/star-wars-app/static/media/arrow-top.3d2ab518.svg",
     "static/media/favourite.c093ce1f.svg": "/star-wars-app/static/media/favourite.c093ce1f.svg",
     "static/media/heart.83ba1346.svg": "/star-wars-app/static/media/heart.83ba1346.svg"
   },
@@ -17,6 +18,6 @@
     "static/js/runtime-main.945645b6.js",
     "static/js/2.6b53c23d.chunk.js",
     "static/css/main.341ed233.chunk.css",
-    "static/js/main.53f66221.chunk.js"
+    "static/js/main.3a8e6470.chunk.js"
   ]
 }
