@@ -28,10 +28,10 @@ const useStyles = makeStyles(() => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-         '@media (max-width: 1024px) and (min-width:768px)': {
+        '@media (max-width: 1024px) and (min-width:480px)': {
             width: '40%',
         },
-        '@media(max-width: 700px)': {
+        '@media(max-width: 480px)': {
             width: '100%',
         },
     },

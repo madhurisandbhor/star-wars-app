@@ -13,6 +13,8 @@ import Toolbar from "components/Toolbar";
 import Alert from "@mui/material/Alert";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+import clsx from "clsx";
+import { ReactComponent as ArrowTop } from "images/arrow-top.svg";
 import { MyContext } from "app";
 import { swapiUrl } from "api";
 import useStyles from "./styles";
@@ -65,6 +67,8 @@ const Dashboard: FC = (): JSX.Element => {
   const [ele, setEle] = useState<HTMLDivElement | null>(null);
   const [filmSuggestions, setFilmSuggestions] = useState<string[]>([]);
   const [open, setOpen] = useState(false);
+  const [scrolling, setScrolling] = useState(false);
+  const [scrollTop, setScrollTop] = useState(0);
 
   const onSearch = useCallback((searchValue: string) => {
     setSearch(searchValue);
@@ -175,6 +179,28 @@ const Dashboard: FC = (): JSX.Element => {
     []
   );
 
+  const scrollToTop = () => {
+    document
+      .querySelector(`[data-testid]`)
+      ?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    function onScroll() {
+      const currentPosition =
+        document.documentElement.scrollTop || document.body.scrollTop;
+      if (currentPosition > scrollTop) {
+        setScrolling(true);
+      } else if (scrollTop < 150) {
+        setScrolling(false);
+      }
+      setScrollTop(currentPosition <= 0 ? 0 : currentPosition);
+    }
+
+    window.addEventListener("scroll", onScroll, true);
+    return () => window.removeEventListener("scroll", onScroll, true);
+  }, [scrollTop]);
+
   const getFilms = useCallback(() => {
     let films: string[] = [];
 
@@ -271,6 +297,17 @@ const Dashboard: FC = (): JSX.Element => {
         toggleFavorite={toggleFavorite}
         favouriteList={favourites}
       />
+      <button
+        type="button"
+        onClick={scrollToTop}
+        className={clsx({
+          [classes.visible]: scrolling,
+          [classes.invisible]: !scrolling,
+        })}
+      >
+        <ArrowTop />
+      </button>
+
       {isLoading ? (
         <Loading />
       ) : (

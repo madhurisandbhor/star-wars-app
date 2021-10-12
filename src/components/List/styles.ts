@@ -3,15 +3,21 @@ import { Theme } from '@mui/material/styles';
 
 const useStyles = makeStyles((theme: Theme) => ({
     list: {
-        display: "flex",
-        flexFlow: "row wrap",
         margin: '2rem 0',
-        justifyContent: "center",
+        display: 'grid',
+        justifyContent: 'center',
+        gridTemplateColumns: 'repeat(4,1fr)',
+        gridAutoFlow: 'row',
+        gridGap: '2rem',
+        '@media (max-width: 1024px) and (min-width:480px)': {
+            gridTemplateColumns: 'repeat(2,1fr)',
+        },
+        '@media(max-width: 480px)': {
+            gridTemplateColumns: '1fr',
+        },
     },
     card: {
         transition: '0.3s',
-        flex: '0 0 23%',
-        margin: '1rem',
         height: '15rem',
         backgroundColor: '#ffffff',
         display: 'flex',
@@ -36,7 +42,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         textAlign: 'center',
         margin: 'auto',
         padding: '0.3rem',
-        color:   theme.palette.primary.main,
+        color: theme.palette.primary.main,
         fontSize: '1.8rem',
     },
     details: {

@@ -5,6 +5,9 @@ const useStyles = makeStyles(() => ({
         width: '40%',
         display: 'flex',
         alignItems: 'center',
+        '@media (max-width: 1024px) and (min-width:480px)': {
+            width: '50%',
+        },
         '@media(max-width: 480px)': {
             width: '100%',
             marginBottom: '2rem',
