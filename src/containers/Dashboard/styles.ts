@@ -5,6 +5,9 @@ const useStyles = makeStyles(() => ({
         margin: '2rem auto',
         padding: '1rem',
         width: '80%',
+        '@media(max-width: 768px)': {
+            width: '90%',
+        },
     },
     noResult: {
         textAlign: 'center',
@@ -13,6 +16,13 @@ const useStyles = makeStyles(() => ({
     },
     loadMore: {
         visibility: 'hidden',
+    },
+    alertRoot: {
+        width: '50%',
+        margin: 'auto',
+        '@media(max-width: 768px)': {
+            width: '100%',
+        },
     },
 }))
 

@@ -6,10 +6,9 @@ const useStyles = makeStyles(() => ({
         alignItems: 'center',
         justifyContent: 'space-between',
         width: '100%',
-        '@media (max-width: 1024px) and (min-width:480px)': {
-            flexDirection: 'row',
-        },
-        '@media(max-width: 768px)': {
+        margin: '1rem auto',
+       
+        '@media(max-width: 480px)': {
             flexDirection: 'column',
             justifyContent: 'center',
         },
@@ -23,7 +22,19 @@ const useStyles = makeStyles(() => ({
         '&&[class*="MuiOutlinedInput-root"] .MuiAutocomplete-input': {
             padding: '0',
         },
-    }
+    },
+    right: {
+        width: '30%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+         '@media (max-width: 1024px) and (min-width:768px)': {
+            width: '40%',
+        },
+        '@media(max-width: 700px)': {
+            width: '100%',
+        },
+    },
 }))
 
 export default useStyles;

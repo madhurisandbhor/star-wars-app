@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme: Theme) => ({
         flexDirection: "column",
         margin: "auto",
         padding: "2rem",
+        '@media(max-width: 768px)': {
+            width: "90%",
+        },
     },
     title: {
         textAlign: 'center',

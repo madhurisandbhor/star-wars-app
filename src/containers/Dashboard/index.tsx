@@ -10,6 +10,9 @@ import List from "components/List";
 import Loading from "components/Loading";
 import { Character, Film } from "types/common";
 import Toolbar from "components/Toolbar";
+import Alert from "@mui/material/Alert";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 import { MyContext } from "app";
 import { swapiUrl } from "api";
 import useStyles from "./styles";
@@ -61,6 +64,7 @@ const Dashboard: FC = (): JSX.Element => {
   const [more, setMore] = useState(false);
   const [ele, setEle] = useState<HTMLDivElement | null>(null);
   const [filmSuggestions, setFilmSuggestions] = useState<string[]>([]);
+  const [open, setOpen] = useState(false);
 
   const onSearch = useCallback((searchValue: string) => {
     setSearch(searchValue);
@@ -130,11 +134,20 @@ const Dashboard: FC = (): JSX.Element => {
   );
 
   const handleDownload = useCallback(() => {
-    const favourListDownload = list.filter((character) =>
-      favourites.includes(character.id)
-    );
-    setExportCharacters(favourListDownload);
+    if (favourites.length === 0) {
+      setError("Please select favourites to download");
+      setOpen(true);
+    } else {
+      const favourListDownload = list.filter((character) =>
+        favourites.includes(character.id)
+      );
+      setExportCharacters(favourListDownload);
+    }
   }, [favourites, list]);
+
+  const closeAlert = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     const filteredList = originalList.filter((item) => {
@@ -227,12 +240,31 @@ const Dashboard: FC = (): JSX.Element => {
 
   return (
     <div className={classes.wrapper} data-testid="main-container">
+      {open && (
+        <Alert
+          severity="error"
+          action={
+            <IconButton
+              aria-label="close"
+              color="inherit"
+              size="small"
+              onClick={closeAlert}
+            >
+              <CloseIcon fontSize="inherit" />
+            </IconButton>
+          }
+          classes={{ root: classes.alertRoot }}
+        >
+          {error}
+        </Alert>
+      )}
       <Toolbar
         data={exportCharacters}
         onSearch={onSearch}
         handleDownload={handleDownload}
         filmSuggestions={filmSuggestions}
         onSelect={onSelect}
+        disableDownload={favourites.length === 0}
       />
       <List
         list={list}
