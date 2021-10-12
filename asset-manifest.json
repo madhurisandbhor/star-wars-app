@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "https://madhurisandbhor.github.io/star-wars-app/static/css/main.341ed233.chunk.css",
-    "main.js": "https://madhurisandbhor.github.io/star-wars-app/static/js/main.a1a5f0ec.chunk.js",
-    "main.js.map": "https://madhurisandbhor.github.io/star-wars-app/static/js/main.a1a5f0ec.chunk.js.map",
-    "runtime-main.js": "https://madhurisandbhor.github.io/star-wars-app/static/js/runtime-main.95f28883.js",
-    "runtime-main.js.map": "https://madhurisandbhor.github.io/star-wars-app/static/js/runtime-main.95f28883.js.map",
-    "static/js/2.b170b3ec.chunk.js": "https://madhurisandbhor.github.io/star-wars-app/static/js/2.b170b3ec.chunk.js",
-    "static/js/2.b170b3ec.chunk.js.map": "https://madhurisandbhor.github.io/star-wars-app/static/js/2.b170b3ec.chunk.js.map",
-    "index.html": "https://madhurisandbhor.github.io/star-wars-app/index.html",
-    "static/css/main.341ed233.chunk.css.map": "https://madhurisandbhor.github.io/star-wars-app/static/css/main.341ed233.chunk.css.map",
-    "static/js/2.b170b3ec.chunk.js.LICENSE.txt": "https://madhurisandbhor.github.io/star-wars-app/static/js/2.b170b3ec.chunk.js.LICENSE.txt",
-    "static/media/favourite.c093ce1f.svg": "https://madhurisandbhor.github.io/star-wars-app/static/media/favourite.c093ce1f.svg",
-    "static/media/heart.83ba1346.svg": "https://madhurisandbhor.github.io/star-wars-app/static/media/heart.83ba1346.svg"
+    "main.css": "/star-wars-app/static/css/main.341ed233.chunk.css",
+    "main.js": "/star-wars-app/static/js/main.5f6896ed.chunk.js",
+    "main.js.map": "/star-wars-app/static/js/main.5f6896ed.chunk.js.map",
+    "runtime-main.js": "/star-wars-app/static/js/runtime-main.945645b6.js",
+    "runtime-main.js.map": "/star-wars-app/static/js/runtime-main.945645b6.js.map",
+    "static/js/2.b170b3ec.chunk.js": "/star-wars-app/static/js/2.b170b3ec.chunk.js",
+    "static/js/2.b170b3ec.chunk.js.map": "/star-wars-app/static/js/2.b170b3ec.chunk.js.map",
+    "index.html": "/star-wars-app/index.html",
+    "static/css/main.341ed233.chunk.css.map": "/star-wars-app/static/css/main.341ed233.chunk.css.map",
+    "static/js/2.b170b3ec.chunk.js.LICENSE.txt": "/star-wars-app/static/js/2.b170b3ec.chunk.js.LICENSE.txt",
+    "static/media/favourite.c093ce1f.svg": "/star-wars-app/static/media/favourite.c093ce1f.svg",
+    "static/media/heart.83ba1346.svg": "/star-wars-app/static/media/heart.83ba1346.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.95f28883.js",
+    "static/js/runtime-main.945645b6.js",
     "static/js/2.b170b3ec.chunk.js",
     "static/css/main.341ed233.chunk.css",
-    "static/js/main.a1a5f0ec.chunk.js"
+    "static/js/main.5f6896ed.chunk.js"
   ]
 }
