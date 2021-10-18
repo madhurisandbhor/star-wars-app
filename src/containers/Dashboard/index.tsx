@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import List from "components/List";
 import Loading from "components/Loading";
-import { Character, Film } from "types/common";
+import { Character, Film, ExportCharacter } from "types/common";
 import Toolbar from "components/Toolbar";
 import Alert from "@mui/material/Alert";
 import IconButton from "@mui/material/IconButton";
@@ -59,7 +59,9 @@ const Dashboard: FC = (): JSX.Element => {
   const [favourites, setFavourites] = useState<string[]>(
     context.favChars || []
   );
-  const [exportCharacters, setExportCharacters] = useState<Character[]>([]);
+  const [exportCharacters, setExportCharacters] = useState<ExportCharacter[]>(
+    []
+  );
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState<string>("");
   const [list, setList] = useState<Character[]>([]);
@@ -139,6 +141,18 @@ const Dashboard: FC = (): JSX.Element => {
     [favourites, context]
   );
 
+  const formatDataToExport = (data: Character[]) => {
+    const temp: ExportCharacter[] = data.map((item) => {
+      let updatedItem;
+      const films = item.filmConnection.films.map((film) => film.title);
+      const allFilms = films.join(", ");
+      const { filmConnection, ...props } = item;
+      updatedItem = { ...props, films: allFilms };
+      return updatedItem;
+    });
+    return temp;
+  };
+
   const handleDownload = useCallback(() => {
     if (favourites.length === 0) {
       setError("Please select favourite characters to download");
@@ -147,7 +161,9 @@ const Dashboard: FC = (): JSX.Element => {
       const favourListDownload = list.filter((character) =>
         favourites.includes(character.id)
       );
-      setExportCharacters(favourListDownload);
+
+      const formattedData = formatDataToExport(favourListDownload);
+      setExportCharacters(formattedData);
     }
   }, [favourites, list]);
 

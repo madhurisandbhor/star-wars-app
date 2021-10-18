@@ -34,6 +34,9 @@ const useStyles = makeStyles(() => ({
         '@media(max-width: 480px)': {
             width: '100%',
         },
+        '& > a':{
+            marginLeft: '1rem',
+        }
     },
 }))
 

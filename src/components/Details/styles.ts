@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        margin: "auto",
+        margin: "2rem auto",
         padding: "2rem",
         '@media(max-width: 768px)': {
             width: "90%",

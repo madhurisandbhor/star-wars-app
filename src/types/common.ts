@@ -20,5 +20,21 @@ export type Character = {
     }[]
 };
 
+export type ExportCharacter = {
+    id: string
+    name: string
+    birthYear: string
+    height: number
+    mass: number
+    gender: string
+    eyeColor: string
+    hairColor: string
+    skinColor: string
+    films: string
+    species: {
+        name: string
+    }[]
+};
+
 
 

@@ -3,7 +3,7 @@ import Search from "components/Search";
 import IconButton from "@mui/material/IconButton";
 import DownloadIcon from "@mui/icons-material/Download";
 import { CSVLink } from "react-csv";
-import { Character } from "types/common";
+import { ExportCharacter } from "types/common";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import useStyles from "./styles";
@@ -12,7 +12,7 @@ import { Tooltip } from "@mui/material";
 interface Props {
   onSearch: (value: string) => void;
   handleDownload: () => void;
-  data: Character[];
+  data: ExportCharacter[];
   filmSuggestions: string[];
   onSelect: (e: React.SyntheticEvent, value: string | null) => void;
   disableDownload: boolean;

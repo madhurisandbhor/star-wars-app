@@ -69,6 +69,8 @@ const useStyles = makeStyles((theme: Theme) => ({
         textAlign: 'left',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
+        fontWeight: 'bold',
+        opacity: 0.8,
     },
     buttonIcons: {
         textAlign: "end",
