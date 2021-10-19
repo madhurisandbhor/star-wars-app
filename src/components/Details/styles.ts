@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     wrapper: {
         display: "flex",
         flexDirection: "column",
-        margin: '6.5rem auto 2rem auto',
+        margin: '2rem auto',
         '& > a': {
             textAlign: "center",
             textDecoration: "none",

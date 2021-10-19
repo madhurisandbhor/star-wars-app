@@ -4,7 +4,7 @@ import { Theme } from '@mui/material/styles';
 
 const useStyles = makeStyles((theme: Theme) => ({
     wrapper: {
-        margin: '6.5rem auto 2rem auto',
+        margin: '2rem auto',
         padding: '1rem',
         width: '80%',
         '@media(max-width: 768px)': {

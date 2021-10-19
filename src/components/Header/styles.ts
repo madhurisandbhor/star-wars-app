@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         padding: '0 2rem',
         boxShadow: '0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2)',
         background: '#ffffff',
-        position: 'fixed',
+        position: 'sticky',
         top: 0,
         width: '100%',
         zIndex: 999,
